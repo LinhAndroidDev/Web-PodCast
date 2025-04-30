@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
 
 function App() {
   return (
@@ -18,7 +19,132 @@ function App() {
           Learn React
         </a>
       </header>
+
+      <Top />
+
+      <BodyView />
+
+      <div style={{width: '100%', height: '140px'}}></div>
+    </div >
+  );
+}
+
+function Navigation() {
+  return (
+    <nav className="navbar">
+      <ul className="nav-list">
+        <li>Home</li>
+        <li>Pages</li>
+        <li>Podcast</li>
+        <li>Blog</li>
+        <li>Shop</li>
+      </ul>
+    </nav>
+  );
+}
+
+function Top() {
+  return (
+    <div style={
+      {
+        backgroundImage: `url(${process.env.PUBLIC_URL + '/assets/image_main.png'})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        height: '120vh',
+        position: 'relative'
+      }
+    }>
+      <Navigation />
+
+      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <img src='/assets/ic_logo_cover.svg' style={{ width: '131px', height: '19px', marginLeft: '47px', marginTop: '46px' }}></img>
+        <div style={{ display: 'flex', justifyContent: 'end', alignItems: 'center', marginTop: '25px' }}>
+          <img src='/assets/ic_search.svg' style={{ width: '15px', height: '21px' }} />
+          <p className='lato' style={{ fontSize: '15px', paddingLeft: '6px' }}>Search</p>
+          <img src='/assets/ic_menu.svg' style={{ width: '25px', height: '25px', paddingLeft: '37px', paddingRight: '46px' }}></img>
+        </div>
+      </div>
+
+      <p className='lato' style={{
+        fontSize: '80px',
+        marginTop: '120px',
+        marginLeft: '130px',
+        display: 'flex',
+      }}>New episode <br /> available now</p>
+      <p className='opensans' style={{
+        fontSize: '19px',
+        fontWeight: 'normal',
+        display: 'flex',
+        marginLeft: '130px',
+        marginTop: '14px',
+      }}>Available on Apple Soundcast and Spotify.</p>
+
+      <div style={{ display: 'flex', marginLeft: '130px', marginTop: '50px' }}>
+        <img src='/assets/h1-rev-img1.png' style={{ width: '185px', height: '54px' }} />
+        <img src='/assets/h1-rev-img2.png' style={{ width: '174px', height: '54px', marginLeft: '23px' }} />
+      </div>
+
+      <div
+        style={{
+          position: 'absolute',
+          left: '50%',
+          bottom: '-125px', // Di chuyển 1 nửa chiều cao của box ra ngoài ảnh
+          transform: 'translateX(-50%)',
+          width: '1000px',
+          height: '250px',
+          backgroundColor: 'white',
+          boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
+          borderRadius: '10px',
+          display: 'flex',
+        }}
+      >
+        <img src='/assets/h4-newimg3-650x650.png' style={{ width: '250px', height: '250px', borderTopLeftRadius: '10px', borderBottomLeftRadius: '10px' }} />
+      </div>
     </div>
+  );
+}
+
+function BodyView() {
+  return (
+    <div style={{ width: '1000px', height: '250px', marginTop: '265px', display: 'flex', marginLeft: '50%', transform: 'translateX(-50%)' }}>
+      <div style={{ width: '100%', height: '250px' }}>
+        <p className='lato' style={{
+          fontSize: '40px',
+          textAlign: 'start'
+        }}>Best places to <br /> find design <br /> inspiration</p>
+        <div style={{ display: 'flex' }}>
+          <CircleCommon />
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', marginLeft: '21px' }}>
+            <p className='lato' style={{ fontSize: '16px', fontWeight: '600', marginTop: '5px', marginBottom: '5px' }}>Episode 1</p>
+            <p className='opensans' style={{ fontSize: '12px', fontWeight: 'normal', color: '#8E8B8C' }}>Category • 0:13</p>
+          </div>
+        </div>
+        <p className='opensans' style={{ fontSize: '15px', fontWeight: 'normal', textAlign: 'start', marginTop: '21px', marginRight: '100px' }}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
+          <br />
+          <br />
+          Ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <div style={{ display: 'flex', justifyItems: 'center', alignItems: 'center', marginTop: '31px' }}>
+          <p className='lato' style={{ fontSize: '15px' }}>Episode page</p>
+          <img src='/assets/ic_arrow.svg' style={{ width: '17px', height: '12px', marginLeft: '10px', marginTop: '2px' }} />
+        </div>
+      </div>
+      <img src='/assets/h1-podcastimg2.png' style={{ width: '496px', height: '490px' }} />
+    </div>
+  );
+}
+
+function CircleCommon() {
+  return (
+    <div
+      style={{
+        width: '50px',
+        height: '50px',
+        borderRadius: '50%',
+        border: '1px solid #CECECE',
+        backgroundColor: 'white', // tuỳ chọn
+      }} />
   );
 }
 

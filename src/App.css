@@ -28,6 +28,69 @@
   color: #61dafb;
 }
 
+p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Áp dụng font Lato cho thẻ <p> có class là "lato" */
+p.lato {
+  font-family: 'Lato', sans-serif;
+  color: black;
+  font-weight: bold;
+}
+
+/* Áp dụng font Open Sans cho thẻ <p> có class là "opensans" */
+p.opensans {
+  font-family: 'Open Sans', sans-serif;
+  color: black;
+  font-weight: bold;
+}
+
+/* Thanh navbar */
+.navbar {
+  position: absolute;
+  top: 30px; /* khoảng cách từ trên xuống */
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 30px;
+  backdrop-filter: blur(8px); /* hiệu ứng mờ */
+}
+
+/* Danh sách tab */
+.nav-list {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list li {
+  font-size: 15px;
+  font-weight: bold;
+  font-family: 'Lato, sans-serif';
+  cursor: pointer;
+  color: black;
+  position: relative;
+  padding-bottom: 5px;
+}
+
+.nav-list li::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: black; /* màu gạch chân */
+  transition: width 0.3s ease;
+}
+
+.nav-list li:hover::after {
+  width: 100%;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
