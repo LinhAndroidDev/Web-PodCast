@@ -2,9 +2,27 @@ import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
 
+const podcasts = [
+  {
+    image: '/assets/podcast_1.png',
+    episodeQuantity: 7,
+    srkpSelect: 'open your mind easy'
+  },
+  {
+    image: '/assets/podcast_2.png',
+    episodeQuantity: 8,
+    srkpSelect: 'keep your watch'
+  },
+  {
+    image: '/assets/podcast_3.png',
+    episodeQuantity: 9,
+    srkpSelect: 'to hide behind safe'
+  },
+]
+
 function App() {
   return (
-    <div className="App">
+    <div className="App" style={{ display: 'flex', flexDirection: 'column' }}>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -24,7 +42,9 @@ function App() {
 
       <BodyView />
 
-      <div style={{width: '100%', height: '140px'}}></div>
+      <div style={{ width: '100%', height: '140px' }}></div>
+
+      <ListPodCast />
     </div >
   );
 }
@@ -106,7 +126,7 @@ function Top() {
 
 function BodyView() {
   return (
-    <div style={{ width: '1000px', height: '250px', marginTop: '265px', display: 'flex', marginLeft: '50%', transform: 'translateX(-50%)' }}>
+    <div style={{ width: '1000px', marginTop: '265px', display: 'flex', marginLeft: '50%', transform: 'translateX(-50%)' }}>
       <div style={{ width: '100%', height: '250px' }}>
         <p className='lato' style={{
           fontSize: '40px',
@@ -125,12 +145,18 @@ function BodyView() {
           <br />
           Ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
-        <div style={{ display: 'flex', justifyItems: 'center', alignItems: 'center', marginTop: '31px' }}>
-          <p className='lato' style={{ fontSize: '15px' }}>Episode page</p>
-          <img src='/assets/ic_arrow.svg' style={{ width: '17px', height: '12px', marginLeft: '10px', marginTop: '2px' }} />
-        </div>
+        <NextPage/>
       </div>
       <img src='/assets/h1-podcastimg2.png' style={{ width: '496px', height: '490px' }} />
+    </div>
+  );
+}
+
+function NextPage() {
+  return (
+    <div style={{ display: 'flex', justifyItems: 'center', alignItems: 'center', marginTop: '31px' }}>
+      <p className='lato' style={{ fontSize: '15px' }}>Episode page</p>
+      <img src='/assets/ic_arrow.svg' style={{ width: '17px', height: '12px', marginLeft: '10px', marginTop: '2px' }} />
     </div>
   );
 }
@@ -145,6 +171,57 @@ function CircleCommon() {
         border: '1px solid #CECECE',
         backgroundColor: 'white', // tuỳ chọn
       }} />
+  );
+}
+
+function ListPodCast() {
+  return (
+    <div style={{ backgroundColor: '#F8F8F8', width: '100%' }}>
+      <p className='lato' style={{ fontSize: '40px', marginTop: '89px' }}>Top podcasts:</p>
+      <p className='opensans' style={{ fontSize: '15px', fontWeight: 'normal', marginTop: '20px' }}>Discover the selection of the most popular podcasts.</p>
+      <div style={{
+        display: 'flex',
+        overflowX: 'auto',
+        gap: '60px',
+        marginTop: '65px'
+      }}>
+        {Array.from({ length: podcasts.length }).map((_, index) => (
+          <div key={index} style={{
+            flex: '0 0 auto',
+            width: '600px',
+            height: '300px',
+            backgroundColor: 'white',
+            borderRadius: '10px',
+            boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
+            display: 'flex',
+            justifyContent: 'start',
+            alignItems: 'start',
+          }}>
+            <div style={{ position: 'relative' }}>
+              <img src={podcasts[index].image} style={{
+                width: '300px',
+                height: '300px',
+                borderTopLeftRadius: '10px',
+                borderBottomLeftRadius: '10px',
+              }} />
+              <img src='/assets/ic_earphone.svg' style={{
+                width: '25px',
+                height: '25px',
+                paddingTop: '8px',
+                paddingBottom: '8px',
+                paddingLeft: '8px',
+                paddingRight: '8px',
+                position: 'absolute',
+                top: '10px',
+                right: '10px',
+                backgroundColor: 'white',
+                borderRadius: '10px'
+              }} />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 
