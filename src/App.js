@@ -145,16 +145,16 @@ function BodyView() {
           <br />
           Ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
-        <NextPage/>
+        <NextPage marginTop={'31px'} />
       </div>
       <img src='/assets/h1-podcastimg2.png' style={{ width: '496px', height: '490px' }} />
     </div>
   );
 }
 
-function NextPage() {
+function NextPage({ marginTop }) {
   return (
-    <div style={{ display: 'flex', justifyItems: 'center', alignItems: 'center', marginTop: '31px' }}>
+    <div style={{ display: 'flex', justifyItems: 'center', alignItems: 'center', marginTop: { marginTop } }}>
       <p className='lato' style={{ fontSize: '15px' }}>Episode page</p>
       <img src='/assets/ic_arrow.svg' style={{ width: '17px', height: '12px', marginLeft: '10px', marginTop: '2px' }} />
     </div>
@@ -176,9 +176,9 @@ function CircleCommon() {
 
 function ListPodCast() {
   return (
-    <div style={{ backgroundColor: '#F8F8F8', width: '100%' }}>
-      <p className='lato' style={{ fontSize: '40px', marginTop: '89px' }}>Top podcasts:</p>
-      <p className='opensans' style={{ fontSize: '15px', fontWeight: 'normal', marginTop: '20px' }}>Discover the selection of the most popular podcasts.</p>
+    <div style={{ backgroundColor: '#F8F8F8', width: '100%', paddingBottom: '182px' }}>
+      <p className='lato' style={{ fontSize: '40px', textAlign: 'center', marginTop: '89px' }}>Top podcasts:</p>
+      <p className='opensans' style={{ fontSize: '15px', textAlign: 'center', fontWeight: 'normal', marginTop: '20px' }}>Discover the selection of the most popular podcasts.</p>
       <div style={{
         display: 'flex',
         overflowX: 'auto',
@@ -195,7 +195,7 @@ function ListPodCast() {
             boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
             display: 'flex',
             justifyContent: 'start',
-            alignItems: 'start',
+            alignItems: 'center',
           }}>
             <div style={{ position: 'relative' }}>
               <img src={podcasts[index].image} style={{
@@ -218,9 +218,53 @@ function ListPodCast() {
                 borderRadius: '10px'
               }} />
             </div>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'start', marginLeft: '30px', marginRight: '59px' }}>
+              <p className='opensans' style={{ fontSize: '14px', color: '#8E8B8C', textAlign: 'start' }}>Episode {podcasts[index].episodeQuantity} • Technology</p>
+              <p className='lato' style={{ fontSize: '20px', marginTop: '5px' }}>SRKP selects: {podcasts[index].srkpSelect}</p>
+              <NextPage marginTop={'20px'} />
+            </div>
           </div>
         ))}
       </div>
+      <DotIndicator />
+    </div>
+  );
+}
+
+function DotIndicator() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const totalDots = 5;
+
+  return (
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '20px' }}>
+      {Array.from({ length: totalDots }).map((_, index) => (
+        <div
+          key={index}
+          onClick={() => setActiveIndex(index)}
+          style={{
+            width: activeIndex === index ? '20px' : '6px',
+            height: activeIndex === index ? '20px' : '6px',
+            borderRadius: '50%',
+            backgroundColor: activeIndex === index ? 'transparent' : 'black',
+            border: activeIndex === index ? '1px solid #8E8B8C' : null,
+            margin: '0 6px',
+            cursor: 'pointer',
+            transition: 'background-color 0.3s',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}
+        >
+          {activeIndex === index && (
+            <div style={{
+              width: '6px',
+              height: '6px',
+              backgroundColor: 'black',
+              borderRadius: '50%'
+            }} />
+          )}
+        </div>
+      ))}
     </div>
   );
 }
