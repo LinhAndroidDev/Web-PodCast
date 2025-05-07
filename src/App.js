@@ -81,7 +81,14 @@ function Top() {
         <div style={{ display: 'flex', justifyContent: 'end', alignItems: 'center', marginTop: '25px' }}>
           <img src='/assets/ic_search.svg' style={{ width: '15px', height: '21px' }} />
           <p className='lato' style={{ fontSize: '15px', paddingLeft: '6px' }}>Search</p>
-          <img src='/assets/ic_menu.svg' style={{ width: '25px', height: '25px', paddingLeft: '37px', paddingRight: '46px' }}></img>
+          <div className='dropdown'>
+            <img src='/assets/ic_menu.svg' style={{ width: '25px', height: '25px', paddingLeft: '37px', paddingRight: '46px' }}></img>
+            <div class="dropdown-content">
+              <a href="#">Link 1</a>
+              <a href="#">Link 2</a>
+              <a href="#">Link 3</a>
+            </div>
+          </div>
         </div>
       </div>
 
