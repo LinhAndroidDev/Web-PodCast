@@ -142,6 +142,43 @@ p.opensans {
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
 
+.slidecontainer {
+  display: flex;
+  align-items: center;
+  margin-left: 27px;
+  width: 100%; /* Width of the outside container */
+}
+
+.slider {
+  flex: 1;
+  -webkit-appearance: none; /* Bỏ kiểu mặc định trên Safari/Chrome */
+  -moz-appearance: none; 
+  height: 2px;
+  background: black;
+  border-radius: 1px;
+  outline: none;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  background: black;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+}
+
+.slider::-moz-range-thumb {
+  width: 10px;
+  height: 10px;
+  background: black;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
