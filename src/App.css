@@ -92,6 +92,13 @@ p.opensans {
   width: 100%;
 }
 
+.center-screen {
+  width: 100%;
+  max-width: calc(100% - 260px); /* 130px x 2 */
+  margin-left: 130px;
+  margin-right: 130px;
+}
+
 /* Dropdown Button */
 .dropbtn {
   background-color: #04AA6D;
