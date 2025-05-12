@@ -59,26 +59,32 @@ function DetailContact({ title, information, other, hasFollow = false }) {
 function FollowView() {
     return (
         <div style={{ display: 'flex', justifyContent: 'start', marginTop: '23px' }}>
-            <img src='/assets/ic_facebook.svg' style={{
+            <a href='https://www.facebook.com/'><img src='/assets/ic_facebook.svg' style={{
                 width: '21px',
                 height: '21px',
                 marginRight: '20px',
-            }} />
-            <img src='/assets/ic_twice.svg' style={{
-                width: '21px',
-                height: '21px',
-                marginRight: '20px',
-            }} />
-            <img src='/assets/ic_instagram.svg' style={{
-                width: '21px',
-                height: '21px',
-                marginRight: '20px',
-            }} />
-            <img src='/assets/ic_youtube.svg' style={{
-                width: '21px',
-                height: '21px',
-                marginRight: '20px',
-            }} />
+            }} /></a>
+            <a href='https://www.twice.com/'>
+                <img src='/assets/ic_twice.svg' style={{
+                    width: '21px',
+                    height: '21px',
+                    marginRight: '20px',
+                }} />
+            </a>
+            <a href='https://www.instagram.com/'>
+                <img src='/assets/ic_instagram.svg' style={{
+                    width: '21px',
+                    height: '21px',
+                    marginRight: '20px',
+                }} />
+            </a>
+            <a href='https://www.youtube.com/'>
+                <img src='/assets/ic_youtube.svg' style={{
+                    width: '21px',
+                    height: '21px',
+                    marginRight: '20px',
+                }} />
+            </a>
         </div>
     );
 }
