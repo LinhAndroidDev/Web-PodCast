@@ -1,20 +1,10 @@
-import { useState } from "react";
-
-export const DotIndicator = () => {
-    const [activeIndex, setActiveIndex] = useState(0);
-    const totalDots = 5;
-
+export const DotIndicator = ({activeIndex, onDotClick, totalDots}) => {
     return (
-        <div style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            marginTop: '20px'
-        }}>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '20px' }}>
             {Array.from({ length: totalDots }).map((_, index) => (
                 <div
                     key={index}
-                    onClick={() => setActiveIndex(index)}
+                    onClick={() => onDotClick(index)}
                     style={{
                         width: activeIndex === index ? '20px' : '6px',
                         height: activeIndex === index ? '20px' : '6px',
@@ -23,7 +13,7 @@ export const DotIndicator = () => {
                         border: activeIndex === index ? '1px solid #8E8B8C' : null,
                         margin: '0 6px',
                         cursor: 'pointer',
-                        transition: 'background-color 0.3s',
+                        transition: 'all 0.3s ease',
                         display: 'flex',
                         justifyContent: 'center',
                         alignItems: 'center'

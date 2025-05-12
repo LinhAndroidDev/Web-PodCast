@@ -10,7 +10,7 @@ import { FooterView } from './view/FooterView';
 function App() {
   return (
     <div className="App" style={{ display: 'flex', flexDirection: 'column' }}>
-      <Top/>
+      <Top />
 
       <BodyView />
 

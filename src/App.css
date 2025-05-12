@@ -179,6 +179,20 @@ p.opensans {
   cursor: pointer;
 }
 
+.podcast-item {
+  flex: 0 0 auto;
+  width: 600px;
+  height: 300px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  scroll-snap-align: center;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
