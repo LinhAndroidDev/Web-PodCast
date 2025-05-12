@@ -72,12 +72,6 @@ export const Top = () => {
 }
 
 function InformationTopView() {
-    const [value, setValue] = useState(1); // Giá trị khởi tạo
-    const handleChange = (e) => {
-        setValue(e.target.value); // Cập nhật giá trị khi kéo
-        console.log('Slider value:', e.target.value);
-    };
-    
     return (
         <div
             className='center-screen'
@@ -128,11 +122,7 @@ function InformationTopView() {
                     </div>
                     <TextSecond />
                     <TextSecond />
-                    <div class="slidecontainer">
-                        <input type="range" min="1" max="100" value={value} class="slider" id="myRange" onChange={handleChange} />
-                        <p className="opensans" style={{ fontSize: '14px', color: '#8E8B8C', fontWeight: 'normal', marginLeft: '10px' }}>00:00 / 00:00</p>
-                        <img src="assets/ic_volume.svg" style={{ width: '20px', height: '20px', marginLeft: '13px' }} />
-                    </div>
+                    <SliderBar />
                 </div>
             </div>
         </div>
@@ -149,5 +139,21 @@ function TextSecond() {
             marginLeft: '24px',
             alignSelf: 'flex-end'
         }}>10s</p>
+    );
+}
+
+function SliderBar() {
+    const [value, setValue] = useState(1); // Giá trị khởi tạo
+    const handleChange = (e) => {
+        setValue(e.target.value); // Cập nhật giá trị khi kéo
+        console.log('Slider value:', e.target.value);
+    };
+
+    return (
+        <div class="slidecontainer">
+            <input type="range" min="1" max="100" value={value} class="slider" id="myRange" onChange={handleChange} />
+            <p className="opensans" style={{ fontSize: '14px', color: '#8E8B8C', fontWeight: 'normal', marginLeft: '10px' }}>00:00 / 00:00</p>
+            <img src="assets/ic_volume.svg" style={{ width: '20px', height: '20px', marginLeft: '13px' }} />
+        </div>
     );
 }
